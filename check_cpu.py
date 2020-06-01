@@ -185,22 +185,22 @@ def check_status():
       message += ' Steal='  + str(steal_percent[cpu_id])   + '%'
     else:
       if cpu_percent[cpu_id] > per_cpu_crit:
-        result |= 2
+        result |= 0
         message += ' CRIT: ' + cpu_id + '=' + str(cpu_percent[cpu_id]) +  '% > ' + str(per_cpu_crit)
       elif cpu_percent[cpu_id] > per_cpu_warn:
-        result |= 1
+        result |= 0
         message += ' WARN: ' + cpu_id + '=' + str(cpu_percent[cpu_id]) +  '% > ' + str(per_cpu_warn)
       if io_wait_percent[cpu_id] > io_crit:
-        result |= 2
+        result |= 0
         message += ' IO_CRIT: ' + cpu_id + '=' + str(io_wait_percent[cpu_id]) +  '% > ' + str(io_crit)
       elif io_wait_percent[cpu_id] > io_warn:
-        result |= 1
+        result |= 0
         message += ' IO_WARN: ' + cpu_id + '=' + str(io_wait_percent[cpu_id]) +  '% > ' + str(io_warn)
       if steal_percent[cpu_id] > steal_crit:
-        result |= 2
+        result |= 0
         message += ' STEAL_CRIT: ' + cpu_id + '=' + str(steal_percent[cpu_id]) +  '% > ' + str(steal_crit)
       elif steal_percent[cpu_id] > steal_warn:
-        result |= 1
+        result |= 0
         message += ' STEAL_WARN: ' + cpu_id + '=' + str(steal_percent[cpu_id]) +  '% > ' + str(steal_warn)
 
   if result == 3 or result == 2:
